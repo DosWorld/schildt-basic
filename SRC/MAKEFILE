@@ -1,0 +1,16 @@
+all: SB_C.EXE SB.EXE
+
+SB_C.EXE: SB.C
+        wcl -mc SB.C -fe=SB_C.EXE
+SB.EXE: SB.PAS
+        tpc SB.PAS
+
+install: SB_C.EXE SB.EXE
+        COPY SB.EXE ..\
+        COPY SB_C.EXE ..\
+
+clean:
+        DEL *.BAK
+        DEL *.OBJ
+        DEL SB.EXE
+        DEL SB_C.EXE
